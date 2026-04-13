@@ -1,0 +1,502 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Product Comparison - HEVBISON vs Toyota NiMH | HEVBISON</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Manrope:wght@500;600;700&display=swap" rel="stylesheet">
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        primary: { DEFAULT: '#2E4D44', variant: '#46655c', dim: '#3a5950' },
+                        background: '#f8faf9',
+                        surface: { DEFAULT: '#dde4e3', low: '#f1f4f3', lowest: '#ffffff' },
+                        'on-surface': '#2d3433',
+                        tertiary: { container: '#b8eefe', 'on-container': '#225a68' },
+                        error: '#a83836',
+                        'error-container': '#f5d4d3'
+                    },
+                    fontFamily: { display: ['Manrope', 'sans-serif'], body: ['Inter', 'sans-serif'] },
+                    letterSpacing: { tighter: '-0.02em', widest: '0.05em' }
+                }
+            }
+        }
+    </script>
+    <style>
+        html { scroll-behavior: smooth; }
+        body { font-family: 'Inter', sans-serif; background: linear-gradient(135deg, #f8faf9 0%, #f1f4f3 50%, #f8faf9 100%); color: #2d3433; }
+        .font-display { font-family: 'Manrope', sans-serif; }
+        .btn-primary { background: #46655c; color: white; border-radius: 4px; transition: all 0.2s ease-out; }
+        .btn-primary:hover { background: #3a5950; box-shadow: 0 20px 40px rgba(45, 52, 51, 0.12); transform: translateY(-2px); }
+        .btn-primary:focus-visible { outline: 2px solid #2E4D44; outline-offset: 2px; }
+        .fade-in { opacity: 0; transform: translateY(20px); transition: opacity 0.6s ease-out, transform 0.6s ease-out; }
+        .fade-in-visible { opacity: 1; transform: translateY(0); }
+        .chip { background: #b8eefe; color: #225a68; border-radius: 9999px; padding: 0.25rem 0.75rem; font-size: 0.75rem; font-weight: 500; letter-spacing: 0.05em; text-transform: uppercase; }
+        .chip-success { background: #d1fae5; color: #065f46; }
+        .progress-line { position: fixed; top: 0; left: 0; height: 3px; background: linear-gradient(90deg, #2E4D44, #46655c); z-index: 100; transition: width 0.1s ease-out; }
+        .comparison-card { background: #ffffff; border-radius: 16px; overflow: hidden; box-shadow: 0 4px 24px rgba(45, 52, 51, 0.06); transition: transform 0.3s ease, box-shadow 0.3s ease; }
+        .comparison-card:hover { transform: translateY(-4px); box-shadow: 0 12px 40px rgba(45, 52, 51, 0.1); }
+        .section-number { font-family: 'Manrope', sans-serif; font-size: 5rem; font-weight: 700; color: rgba(46, 77, 68, 0.08); line-height: 1; }
+        .advantage-badge { background: linear-gradient(135deg, #d1fae5 0%, #a7f3d0 100%); color: #065f46; padding: 0.25rem 0.75rem; border-radius: 9999px; font-size: 0.75rem; font-weight: 600; }
+        .highlight-box { background: linear-gradient(135deg, rgba(184, 238, 254, 0.3) 0%, rgba(255, 255, 255, 1) 100%); border-radius: 12px; padding: 1.25rem; border-left: 3px solid #2E4D44; }
+        .side-nav { position: sticky; top: 100px; }
+        .side-nav-item { display: block; padding: 0.5rem 1rem; color: #2d3433; opacity: 0.6; transition: all 0.2s; border-left: 2px solid #dde4e3; font-size: 0.875rem; }
+        .side-nav-item:hover, .side-nav-item.active { opacity: 1; color: #2E4D44; border-left-color: #2E4D44; background: rgba(46, 77, 68, 0.05); }
+        .hero-pattern { background-image: radial-gradient(circle at 20% 80%, rgba(46, 77, 68, 0.03) 0%, transparent 50%), radial-gradient(circle at 80% 20%, rgba(184, 238, 254, 0.1) 0%, transparent 50%); }
+        .battery-image { position: relative; overflow: hidden; border-radius: 12px; }
+        .battery-image::after { content: ''; position: absolute; inset: 0; background: linear-gradient(135deg, rgba(46, 77, 68, 0.1) 0%, transparent 50%); pointer-events: none; }
+    </style>
+</head>
+<body class="antialiased">
+    <div id="progress-line" class="progress-line" style="width: 0%"></div>
+
+    <!-- Header -->
+    <header class="py-4 px-4 sm:px-6 lg:px-8 bg-surface-lowest/95 backdrop-blur-sm sticky top-0 z-50 shadow-ambient">
+        <div class="max-w-7xl mx-auto flex justify-between items-center">
+            <a href="index.html" class="flex-shrink-0 py-2">
+                <img src="brand%20assets/brand-logo.jpg" alt="HEVBISON Logo" class="h-12 lg:h-16 w-auto rounded-lg">
+            </a>
+            <a href="index.html#contact" class="btn-primary px-6 py-2.5 font-display text-sm font-medium">Contact Us</a>
+        </div>
+    </header>
+
+    <main>
+        <!-- Hero Section with Image -->
+        <section class="py-16 lg:py-24 hero-pattern">
+            <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+                <div class="grid lg:grid-cols-2 gap-12 items-center">
+                    <div class="fade-in">
+                        <nav class="text-sm text-[#2d3433]/60 mb-6">
+                            <a href="index.html" class="hover:text-primary transition-colors">Home</a>
+                            <span class="mx-2">/</span>
+                            <span class="text-[#2d3433]">Product</span>
+                        </nav>
+                        <h1 class="font-display text-4xl sm:text-5xl lg:text-6xl font-bold tracking-tighter text-[#2d3433] mb-6">
+                            HEVBISON vs Toyota NiMH
+                        </h1>
+                        <p class="text-lg lg:text-xl text-[#2d3433]/70 leading-relaxed mb-8">
+                            A comprehensive comparison between HEVBISON automotive-grade hybrid batteries and Toyota's original NiMH batteries across seven key parameters.
+                        </p>
+                        <div class="flex flex-wrap gap-3">
+                            <a href="#section1" class="chip hover:bg-primary hover:text-white transition-colors cursor-pointer">01 Voltage</a>
+                            <a href="#section2" class="chip hover:bg-primary hover:text-white transition-colors cursor-pointer">02 Safety</a>
+                            <a href="#section3" class="chip hover:bg-primary hover:text-white transition-colors cursor-pointer">03 Resistance</a>
+                            <a href="#section4" class="chip hover:bg-primary hover:text-white transition-colors cursor-pointer">04 Discharge</a>
+                            <a href="#section5" class="chip hover:bg-primary hover:text-white transition-colors cursor-pointer">05 Weight</a>
+                            <a href="#section6" class="chip hover:bg-primary hover:text-white transition-colors cursor-pointer">06 Lifespan</a>
+                            <a href="#section7" class="chip hover:bg-primary hover:text-white transition-colors cursor-pointer">07 Temperature</a>
+                        </div>
+                    </div>
+                    <div class="fade-in">
+                        <div class="battery-image shadow-ambient-xl">
+                            <img src="main%20product%20snapshots/1.png" alt="HEVBISON Hybrid Battery" class="w-full h-auto">
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Main Content -->
+        <section class="py-12 lg:py-16">
+            <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+                <div class="lg:grid lg:grid-cols-12 lg:gap-12">
+                    <!-- Side Navigation -->
+                    <aside class="hidden lg:block lg:col-span-2">
+                        <nav class="side-nav">
+                            <a href="#section1" class="side-nav-item">01 Voltage</a>
+                            <a href="#section2" class="side-nav-item">02 Safety</a>
+                            <a href="#section3" class="side-nav-item">03 Resistance</a>
+                            <a href="#section4" class="side-nav-item">04 Discharge</a>
+                            <a href="#section5" class="side-nav-item">05 Weight</a>
+                            <a href="#section6" class="side-nav-item">06 Lifespan</a>
+                            <a href="#section7" class="side-nav-item">07 Temperature</a>
+                        </nav>
+                    </aside>
+
+                    <!-- Content -->
+                    <div class="lg:col-span-10 space-y-24">
+
+                        <!-- Section 1 -->
+                        <div id="section1" class="fade-in">
+                            <div class="flex items-start gap-6 mb-8">
+                                <span class="section-number">01</span>
+                                <div>
+                                    <span class="chip">Voltage Platform & Consistency</span>
+                                    <h2 class="font-display text-2xl sm:text-3xl font-bold tracking-tighter text-[#2d3433] mt-3">Voltage Platform and Consistency</h2>
+                                    <p class="text-[#2d3433]/60 text-sm mt-2">Correlation — BMS determination of battery status</p>
+                                </div>
+                            </div>
+                            <p class="text-[#2d3433]/70 leading-relaxed mb-8">If the voltage of adjacent battery cells exceeds 3%, it is determined as abnormal.</p>
+                            <div class="grid md:grid-cols-2 gap-6 mb-8">
+                                <div class="comparison-card p-6">
+                                    <div class="flex items-center justify-between mb-4">
+                                        <h3 class="font-display font-semibold text-[#2d3433]">HEVBISON</h3>
+                                        <span class="advantage-badge">Superior</span>
+                                    </div>
+                                    <div class="space-y-4">
+                                        <div>
+                                            <h4 class="text-sm font-medium text-primary mb-1">Operating Platform Voltage</h4>
+                                            <p class="text-[#2d3433]/70 text-sm">The normal operating platform voltage is <strong>7.32V</strong>, with a discharge cut-off voltage of 5.4V and a charge cut-off voltage of 8.4V.</p>
+                                        </div>
+                                        <div>
+                                            <h4 class="text-sm font-medium text-primary mb-1">Voltage Consistency</h4>
+                                            <p class="text-[#2d3433]/70 text-sm">The voltage difference range is <strong>&lt; 1.2‰</strong>. Dynamic voltage difference after installation is less than 0.12V.</p>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="comparison-card p-6">
+                                    <h3 class="font-display font-semibold text-[#2d3433] mb-4">TOYOTA (Ni-MH)</h3>
+                                    <div class="space-y-4">
+                                        <div>
+                                            <h4 class="text-sm font-medium text-[#2d3433]/60 mb-1">Operating Platform Voltage</h4>
+                                            <p class="text-[#2d3433]/70 text-sm">The normal operating platform voltage is <strong>7.2V</strong>, discharge cut-off 5.6V, charge cut-off 8.2V.</p>
+                                        </div>
+                                        <div>
+                                            <h4 class="text-sm font-medium text-[#2d3433]/60 mb-1">Voltage Consistency</h4>
+                                            <p class="text-[#2d3433]/70 text-sm">Toyota's BMS considers a voltage difference of less than 0.2V to be excellent.</p>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="highlight-box">
+                                <h4 class="font-display font-semibold text-[#2d3433] mb-3">Advantages of HEVBISON Batteries</h4>
+                                <ul class="space-y-2 text-sm text-[#2d3433]/70">
+                                    <li class="flex items-start gap-2"><svg class="w-5 h-5 text-primary flex-shrink-0 mt-0.5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"/></svg><span><strong class="text-[#2d3433]">Voltage consistency (&lt; 1.2‰):</strong> Strict criteria to ensure voltage fluctuation is controlled.</span></li>
+                                    <li class="flex items-start gap-2"><svg class="w-5 h-5 text-primary flex-shrink-0 mt-0.5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"/></svg><span><strong class="text-[#2d3433]">Excellent BMS compatibility:</strong> Seamless integration, no software modifications required.</span></li>
+                                </ul>
+                            </div>
+                        </div>
+
+                        <!-- Section 2 -->
+                        <div id="section2" class="fade-in">
+                            <div class="flex items-start gap-6 mb-8">
+                                <span class="section-number">02</span>
+                                <div>
+                                    <span class="chip">Flame Retardant Design & Safety</span>
+                                    <h2 class="font-display text-2xl sm:text-3xl font-bold tracking-tighter text-[#2d3433] mt-3">Flame Retardant Design and Safety</h2>
+                                    <p class="text-[#2d3433]/60 text-sm mt-2">Correlation — Safety</p>
+                                </div>
+                            </div>
+                            <div class="grid md:grid-cols-2 gap-6 mb-8">
+                                <div class="comparison-card p-6">
+                                    <div class="flex items-center justify-between mb-4">
+                                        <h3 class="font-display font-semibold text-[#2d3433]">HEVBISON</h3>
+                                        <span class="advantage-badge">Enhanced</span>
+                                    </div>
+                                    <p class="text-[#2d3433]/70 text-sm mb-3">High-quality <strong>PP+PPE innovative composite materials</strong> with polymer flame retardant material.</p>
+                                    <p class="text-[#2d3433]/70 text-sm">Specialized flame retardant layer between internal cells to isolate heat transfer.</p>
+                                </div>
+                                <div class="comparison-card p-6">
+                                    <h3 class="font-display font-semibold text-[#2d3433] mb-4">TOYOTA</h3>
+                                    <p class="text-[#2d3433]/70 text-sm">Uses <strong>PP+PPE packaging</strong> with good flame retardant properties.</p>
+                                </div>
+                            </div>
+                            <div class="grid md:grid-cols-3 gap-4">
+                                <div class="highlight-box">
+                                    <h4 class="font-display font-semibold text-[#2d3433] mb-2 text-sm">Vent Hole Design</h4>
+                                    <p class="text-[#2d3433]/70 text-sm">Positioned to discharge harmful gases quickly during thermal runaway.</p>
+                                </div>
+                                <div class="highlight-box">
+                                    <h4 class="font-display font-semibold text-[#2d3433] mb-2 text-sm">Gas Guide Tube</h4>
+                                    <p class="text-[#2d3433]/70 text-sm">Original vehicle rubber air duct utilized for auxiliary exhaust.</p>
+                                </div>
+                                <div class="highlight-box">
+                                    <h4 class="font-display font-semibold text-[#2d3433] mb-2 text-sm">Reduced Gas Generation</h4>
+                                    <p class="text-[#2d3433]/70 text-sm">Optimized materials significantly reduce harmful gas production.</p>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Section 3 -->
+                        <div id="section3" class="fade-in">
+                            <div class="flex items-start gap-6 mb-8">
+                                <span class="section-number">03</span>
+                                <div>
+                                    <span class="chip">Internal Resistance & Performance</span>
+                                    <h2 class="font-display text-2xl sm:text-3xl font-bold tracking-tighter text-[#2d3433] mt-3">Internal Resistance and Battery Performance</h2>
+                                    <p class="text-[#2d3433]/60 text-sm mt-2">Correlation — MPG, Safety, Lifespan</p>
+                                </div>
+                            </div>
+                            <div class="grid md:grid-cols-2 gap-6 mb-8">
+                                <div class="comparison-card p-6">
+                                    <div class="flex items-center justify-between mb-4">
+                                        <h3 class="font-display font-semibold text-[#2d3433]">HEVBISON</h3>
+                                        <span class="advantage-badge">1/3 of Toyota</span>
+                                    </div>
+                                    <div class="bg-gradient-to-br from-surface-low to-white rounded-lg p-4 text-center mb-4">
+                                        <div class="font-display text-4xl font-bold text-primary">&lt;2.0mΩ</div>
+                                        <div class="text-xs text-[#2d3433]/60 mt-1">Single Cell Internal Resistance</div>
+                                    </div>
+                                    <p class="text-[#2d3433]/70 text-sm">Higher current transmission efficiency, lower energy loss, greater power output advantage.</p>
+                                </div>
+                                <div class="comparison-card p-6">
+                                    <h3 class="font-display font-semibold text-[#2d3433] mb-4">TOYOTA (Ni-MH)</h3>
+                                    <div class="bg-surface-low rounded-lg p-4 text-center mb-4">
+                                        <div class="font-display text-4xl font-bold text-[#2d3433]/60">6.5-7mΩ</div>
+                                        <div class="text-xs text-[#2d3433]/60 mt-1">Single Cell Internal Resistance</div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="grid md:grid-cols-3 gap-4">
+                                <div class="highlight-box"><h4 class="font-display font-semibold text-[#2d3433] mb-2 text-sm">Heat Generation</h4><p class="text-[#2d3433]/70 text-sm">Lower resistance means less heat, better performance, longer life.</p></div>
+                                <div class="highlight-box"><h4 class="font-display font-semibold text-[#2d3433] mb-2 text-sm">BMS Fan Impact</h4><p class="text-[#2d3433]/70 text-sm">Reduced fan activation frequency, improved efficiency.</p></div>
+                                <div class="highlight-box"><h4 class="font-display font-semibold text-[#2d3433] mb-2 text-sm">MPG Improvement</h4><p class="text-[#2d3433]/70 text-sm">Lower energy loss translates to better fuel economy.</p></div>
+                            </div>
+                        </div>
+
+                        <!-- Section 4 -->
+                        <div id="section4" class="fade-in">
+                            <div class="flex items-start gap-6 mb-8">
+                                <span class="section-number">04</span>
+                                <div>
+                                    <span class="chip">Discharge Capacity & MPG</span>
+                                    <h2 class="font-display text-2xl sm:text-3xl font-bold tracking-tighter text-[#2d3433] mt-3">Discharge Capacity and MPG</h2>
+                                    <p class="text-[#2d3433]/60 text-sm mt-2">Correlation — MPG</p>
+                                </div>
+                            </div>
+                            <div class="grid md:grid-cols-2 gap-6 mb-8">
+                                <div class="comparison-card p-6">
+                                    <div class="flex items-center justify-between mb-4">
+                                        <h3 class="font-display font-semibold text-[#2d3433]">HEVBISON</h3>
+                                        <span class="advantage-badge">Superior</span>
+                                    </div>
+                                    <div class="bg-gradient-to-br from-surface-low to-white rounded-lg p-4 mb-4">
+                                        <div class="grid grid-cols-2 gap-4 text-center">
+                                            <div><div class="font-display text-3xl font-bold text-primary">120A</div><div class="text-xs text-[#2d3433]/60">Over 60s</div></div>
+                                            <div><div class="font-display text-3xl font-bold text-primary">200A</div><div class="text-xs text-[#2d3433]/60">For 30s</div></div>
+                                        </div>
+                                    </div>
+                                    <p class="text-[#2d3433]/70 text-sm">Faster discharge response, rapid energy release for instantaneous power demands.</p>
+                                </div>
+                                <div class="comparison-card p-6">
+                                    <h3 class="font-display font-semibold text-[#2d3433] mb-4">TOYOTA (Ni-MH)</h3>
+                                    <div class="bg-surface-low rounded-lg p-4 mb-4 text-center">
+                                        <div class="font-display text-3xl font-bold text-[#2d3433]/60">120A</div>
+                                        <div class="text-xs text-[#2d3433]/60 mt-1">Continuous: 8s</div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="grid md:grid-cols-3 gap-4">
+                                <div class="highlight-box"><h4 class="font-display font-semibold text-[#2d3433] mb-2 text-sm">High-Load Performance</h4><p class="text-[#2d3433]/70 text-sm">Stable energy output during start-up and high-load conditions.</p></div>
+                                <div class="highlight-box"><h4 class="font-display font-semibold text-[#2d3433] mb-2 text-sm">Acceleration Impact</h4><p class="text-[#2d3433]/70 text-sm">Quick power delivery for rapid acceleration and emergency response.</p></div>
+                                <div class="highlight-box"><h4 class="font-display font-semibold text-[#2d3433] mb-2 text-sm">Engine Intervention</h4><p class="text-[#2d3433]/70 text-sm">Reduces engine frequency, improves fuel economy and reduces emissions.</p></div>
+                            </div>
+                        </div>
+
+                        <!-- Section 5 -->
+                        <div id="section5" class="fade-in">
+                            <div class="flex items-start gap-6 mb-8">
+                                <span class="section-number">05</span>
+                                <div>
+                                    <span class="chip">Weight & MPG</span>
+                                    <h2 class="font-display text-2xl sm:text-3xl font-bold tracking-tighter text-[#2d3433] mt-3">Weight and MPG</h2>
+                                    <p class="text-[#2d3433]/60 text-sm mt-2">Correlation — MPG</p>
+                                </div>
+                            </div>
+                            <div class="grid md:grid-cols-2 gap-6 mb-8">
+                                <div class="comparison-card p-6">
+                                    <div class="flex items-center justify-between mb-4">
+                                        <h3 class="font-display font-semibold text-[#2d3433]">HEVBISON</h3>
+                                        <span class="advantage-badge">62% Lighter</span>
+                                    </div>
+                                    <div class="bg-gradient-to-br from-tertiary-container/30 to-white rounded-lg p-6 text-center mb-4">
+                                        <div class="font-display text-5xl font-bold text-primary">15</div>
+                                        <div class="text-sm text-[#2d3433]/60">KG Battery Pack Weight</div>
+                                    </div>
+                                    <p class="text-[#2d3433]/70 text-sm">Lightweight materials reduce overall vehicle mass, improving fuel economy and driving range.</p>
+                                </div>
+                                <div class="comparison-card p-6">
+                                    <h3 class="font-display font-semibold text-[#2d3433] mb-4">TOYOTA</h3>
+                                    <div class="bg-surface-low rounded-lg p-6 text-center mb-4">
+                                        <div class="font-display text-5xl font-bold text-[#2d3433]/60">39</div>
+                                        <div class="text-sm text-[#2d3433]/60">KG Battery Pack Weight</div>
+                                    </div>
+                                    <p class="text-[#2d3433]/70 text-sm">Falls slightly short in lightweight design with larger impact on curb weight.</p>
+                                </div>
+                            </div>
+                            <div class="grid md:grid-cols-2 gap-4">
+                                <div class="highlight-box"><h4 class="font-display font-semibold text-[#2d3433] mb-2">Reducing Curb Weight</h4><p class="text-[#2d3433]/70 text-sm">Every 100kg reduction improves MPG by approximately 1-2%.</p></div>
+                                <div class="highlight-box"><h4 class="font-display font-semibold text-[#2d3433] mb-2">MPG Improvement</h4><p class="text-[#2d3433]/70 text-sm">HEVBISON lightweight design increases MPG by ~2%, reducing fuel costs.</p></div>
+                            </div>
+                        </div>
+
+                        <!-- Section 6 -->
+                        <div id="section6" class="fade-in">
+                            <div class="flex items-start gap-6 mb-8">
+                                <span class="section-number">06</span>
+                                <div>
+                                    <span class="chip">Cycle Count & Lifespan</span>
+                                    <h2 class="font-display text-2xl sm:text-3xl font-bold tracking-tighter text-[#2d3433] mt-3">Cycle Count and Lifespan</h2>
+                                    <p class="text-[#2d3433]/60 text-sm mt-2">Correlation — Lifespan</p>
+                                </div>
+                            </div>
+                            <div class="grid md:grid-cols-2 gap-6 mb-8">
+                                <div class="comparison-card p-6">
+                                    <div class="flex items-center justify-between mb-4">
+                                        <h3 class="font-display font-semibold text-[#2d3433]">HEVBISON</h3>
+                                        <span class="advantage-badge">2x Longer</span>
+                                    </div>
+                                    <div class="bg-gradient-to-br from-surface-low to-white rounded-lg p-4 mb-4">
+                                        <div class="grid grid-cols-2 gap-4 text-center">
+                                            <div><div class="font-display text-3xl font-bold text-primary">20,000+</div><div class="text-xs text-[#2d3433]/60">Cycles</div></div>
+                                            <div><div class="font-display text-3xl font-bold text-primary">80%</div><div class="text-xs text-[#2d3433]/60">Capacity Retention</div></div>
+                                        </div>
+                                    </div>
+                                    <p class="text-[#2d3433]/70 text-sm">Breakthrough in cycle count, far exceeding similar products with high capacity retention.</p>
+                                </div>
+                                <div class="comparison-card p-6">
+                                    <h3 class="font-display font-semibold text-[#2d3433] mb-4">TOYOTA</h3>
+                                    <div class="bg-surface-low rounded-lg p-4 mb-4">
+                                        <div class="grid grid-cols-2 gap-4 text-center">
+                                            <div><div class="font-display text-3xl font-bold text-[#2d3433]/60">10,000</div><div class="text-xs text-[#2d3433]/60">Cycles</div></div>
+                                            <div><div class="font-display text-3xl font-bold text-[#2d3433]/60">65%</div><div class="text-xs text-[#2d3433]/60">Capacity Retention</div></div>
+                                        </div>
+                                    </div>
+                                    <p class="text-[#2d3433]/70 text-sm">Long-term market validated with good stability and durability.</p>
+                                </div>
+                            </div>
+                            <div class="grid md:grid-cols-3 gap-4">
+                                <div class="highlight-box"><h4 class="font-display font-semibold text-[#2d3433] mb-2 text-sm">Measurement Standards</h4><p class="text-[#2d3433]/70 text-sm">Cycle count, capacity fade rate, and service life years.</p></div>
+                                <div class="highlight-box"><h4 class="font-display font-semibold text-[#2d3433] mb-2 text-sm">Lifespan Advantages</h4><p class="text-[#2d3433]/70 text-sm">High cycle count, low fade rate, long service life.</p></div>
+                                <div class="highlight-box"><h4 class="font-display font-semibold text-[#2d3433] mb-2 text-sm">Rigorous Testing</h4><p class="text-[#2d3433]/70 text-sm">2 years of testing by top-tier European automotive brands.</p></div>
+                            </div>
+                        </div>
+
+                        <!-- Section 7 -->
+                        <div id="section7" class="fade-in">
+                            <div class="flex items-start gap-6 mb-8">
+                                <span class="section-number">07</span>
+                                <div>
+                                    <span class="chip">Temperature Range & Stability</span>
+                                    <h2 class="font-display text-2xl sm:text-3xl font-bold tracking-tighter text-[#2d3433] mt-3">Operating Temperature Range and Stability</h2>
+                                    <p class="text-[#2d3433]/60 text-sm mt-2">Correlation — Stability</p>
+                                </div>
+                            </div>
+                            <div class="grid md:grid-cols-2 gap-6 mb-8">
+                                <div class="comparison-card p-6">
+                                    <div class="flex items-center justify-between mb-4">
+                                        <h3 class="font-display font-semibold text-[#2d3433]">HEVBISON</h3>
+                                        <span class="advantage-badge">Wider Range</span>
+                                    </div>
+                                    <div class="bg-gradient-to-br from-tertiary-container/30 to-white rounded-lg p-4 mb-4">
+                                        <div class="text-center">
+                                            <div class="font-display text-2xl font-bold text-primary">-30°C to 70°C</div>
+                                            <div class="text-xs text-[#2d3433]/60 mt-1">Operating Range</div>
+                                        </div>
+                                        <div class="mt-3 pt-3 border-t border-surface text-center">
+                                            <div class="font-display text-lg font-semibold text-[#2d3433]">-40°C to 80°C</div>
+                                            <div class="text-xs text-[#2d3433]/60">Limit Temperature Range</div>
+                                        </div>
+                                    </div>
+                                    <p class="text-[#2d3433]/70 text-sm">Supports <strong>90A continuous discharge at -40°C</strong>. Exceptional performance in cold and hot regions.</p>
+                                </div>
+                                <div class="comparison-card p-6">
+                                    <h3 class="font-display font-semibold text-[#2d3433] mb-4">TOYOTA</h3>
+                                    <div class="bg-surface-low rounded-lg p-4 text-center mb-4">
+                                        <div class="font-display text-2xl font-bold text-[#2d3433]/60">-20°C to 60°C</div>
+                                        <div class="text-xs text-[#2d3433]/60 mt-1">Operating Range</div>
+                                    </div>
+                                    <p class="text-[#2d3433]/70 text-sm">Stable operation under various conditions, though performance may decrease at extremes.</p>
+                                </div>
+                            </div>
+                            <div class="grid md:grid-cols-3 gap-4">
+                                <div class="highlight-box"><h4 class="font-display font-semibold text-[#2d3433] mb-2 text-sm">Extreme Tolerance</h4><p class="text-[#2d3433]/70 text-sm">Superior tolerance in both high and low temperature environments.</p></div>
+                                <div class="highlight-box"><h4 class="font-display font-semibold text-[#2d3433] mb-2 text-sm">Low-Temp Discharge</h4><p class="text-[#2d3433]/70 text-sm">Advanced electrolyte improves cold weather performance.</p></div>
+                                <div class="highlight-box"><h4 class="font-display font-semibold text-[#2d3433] mb-2 text-sm">Stability Impact</h4><p class="text-[#2d3433]/70 text-sm">Top-tier cells ensure stability under various operating conditions.</p></div>
+                            </div>
+                        </div>
+
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Product Image Gallery -->
+        <section class="py-16 bg-surface-low">
+            <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+                <h2 class="font-display text-2xl sm:text-3xl font-bold tracking-tighter text-[#2d3433] text-center mb-8">Our Products</h2>
+                <div class="grid grid-cols-2 md:grid-cols-4 gap-4">
+                    <div class="battery-image shadow-ambient"><img src="main%20product%20snapshots/1.png" alt="HEVBISON Battery" class="w-full h-auto"></div>
+                    <div class="battery-image shadow-ambient"><img src="main%20product%20snapshots/2.png" alt="HEVBISON Battery" class="w-full h-auto"></div>
+                    <div class="battery-image shadow-ambient"><img src="main%20product%20snapshots/3.png" alt="HEVBISON Battery" class="w-full h-auto"></div>
+                    <div class="battery-image shadow-ambient"><img src="main%20product%20snapshots/4.png" alt="HEVBISON Battery" class="w-full h-auto"></div>
+                </div>
+            </div>
+        </section>
+
+        <!-- CTA -->
+        <section class="py-16 lg:py-24 bg-primary">
+            <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+                <h2 class="font-display text-2xl sm:text-3xl lg:text-4xl font-bold tracking-tighter text-white mb-4">Ready to Upgrade?</h2>
+                <p class="text-lg text-white/80 mb-8 max-w-xl mx-auto">Contact our team for pricing, technical specifications, and custom solutions for your hybrid battery needs.</p>
+                <a href="index.html#contact" class="inline-flex items-center bg-white text-primary px-8 py-3.5 rounded-md font-display text-sm font-medium hover:bg-white/90 transition-colors">Contact Us<svg class="w-4 h-4 ml-2" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 8l4 4m0 0l-4 4m4-4H3"/></svg></a>
+            </div>
+        </section>
+    </main>
+
+    <!-- Footer -->
+    <footer class="py-12 bg-surface">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex flex-col lg:flex-row justify-between items-center gap-6">
+                <div class="flex items-center gap-4">
+                    <img src="brand%20assets/brand-logo.jpg" alt="HEVBISON Logo" class="h-8 w-auto rounded">
+                    <span class="font-display font-semibold text-[#2d3433]">HEVBISON</span>
+                </div>
+                <nav class="flex flex-wrap justify-center gap-6 text-sm text-[#2d3433]/70">
+                    <a href="index.html" class="hover:text-primary transition-colors">Home</a>
+                    <a href="index.html#product" class="hover:text-primary transition-colors">Product</a>
+                    <a href="index.html#about" class="hover:text-primary transition-colors">About</a>
+                    <a href="index.html#contact" class="hover:text-primary transition-colors">Contact</a>
+                </nav>
+                <p class="text-sm text-[#2d3433]/50">&copy; 2024 HEVBISON. All rights reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        // Fade-in Animation
+        const fadeElements = document.querySelectorAll('.fade-in');
+        const fadeObserver = new IntersectionObserver((entries) => {
+            entries.forEach(entry => { if (entry.isIntersecting) entry.target.classList.add('fade-in-visible'); });
+        }, { threshold: 0.1, rootMargin: '0px 0px -50px 0px' });
+        fadeElements.forEach(el => fadeObserver.observe(el));
+
+        // Progress Line
+        window.addEventListener('scroll', () => {
+            const scrollTop = window.scrollY;
+            const docHeight = document.documentElement.scrollHeight - window.innerHeight;
+            document.getElementById('progress-line').style.width = (scrollTop / docHeight) * 100 + '%';
+        });
+
+        // Side Navigation Active State
+        const sections = document.querySelectorAll('[id^="section"]');
+        const sideNavItems = document.querySelectorAll('.side-nav-item');
+        const sectionObserver = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    const id = entry.target.getAttribute('id');
+                    sideNavItems.forEach(item => {
+                        item.classList.remove('active');
+                        if (item.getAttribute('href') === `#${id}`) item.classList.add('active');
+                    });
+                }
+            });
+        }, { rootMargin: '-20% 0px -60% 0px' });
+        sections.forEach(section => sectionObserver.observe(section));
+
+        // Smooth scroll
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                const target = document.querySelector(this.getAttribute('href'));
+                if (target) window.scrollTo({ top: target.getBoundingClientRect().top + window.pageYOffset - 100, behavior: 'smooth' });
+            });
+        });
+    </script>
+</body>
+</html>

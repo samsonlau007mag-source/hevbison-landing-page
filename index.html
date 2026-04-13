@@ -1,0 +1,582 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>HEVBISON - Premium Hybrid Batteries for Toyota & Lexus</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Manrope:wght@500;600;700&display=swap" rel="stylesheet">
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        primary: {
+                            DEFAULT: '#2E4D44',
+                            variant: '#46655c',
+                            dim: '#3a5950'
+                        },
+                        background: '#f8faf9',
+                        surface: {
+                            DEFAULT: '#dde4e3',
+                            low: '#f1f4f3',
+                            lowest: '#ffffff'
+                        },
+                        'on-surface': '#2d3433',
+                        tertiary: {
+                            container: '#b8eefe',
+                            'on-container': '#225a68'
+                        },
+                        error: '#a83836',
+                        'error-container': '#f5d4d3'
+                    },
+                    fontFamily: {
+                        display: ['Manrope', 'sans-serif'],
+                        body: ['Inter', 'sans-serif']
+                    },
+                    letterSpacing: {
+                        tighter: '-0.02em',
+                        widest: '0.05em'
+                    }
+                }
+            }
+        }
+    </script>
+    <style>
+        html { scroll-behavior: smooth; }
+        body { font-family: 'Inter', sans-serif; background-color: #f8faf9; color: #2d3433; }
+        .font-display { font-family: 'Manrope', sans-serif; }
+        .glass-header { background: rgba(248, 250, 249, 0.85); backdrop-filter: blur(20px); -webkit-backdrop-filter: blur(20px); }
+        .nav-link { position: relative; }
+        .nav-link::after { content: ''; position: absolute; bottom: -4px; left: 0; width: 0; height: 2px; background-color: #2E4D44; transition: width 0.3s ease; }
+        .nav-link:hover::after, .nav-link.active::after { width: 100%; }
+        .btn-primary { background: #46655c; color: white; border-radius: 4px; transition: background 0.2s ease-out, transform 0.2s cubic-bezier(0.34, 1.56, 0.64, 1), box-shadow 0.2s ease-out; }
+        .btn-primary:hover { background: #3a5950; box-shadow: 0 40px 80px rgba(45, 52, 51, 0.08); }
+        .btn-primary:focus-visible { outline: 2px solid #2E4D44; outline-offset: 2px; }
+        .btn-primary:active { transform: scale(0.98); }
+        .btn-secondary { background: #dde4e3; color: #2d3433; border-radius: 4px; transition: background 0.2s ease-out, transform 0.2s cubic-bezier(0.34, 1.56, 0.64, 1); }
+        .btn-secondary:hover { background: #c5cdcc; }
+        .btn-secondary:focus-visible { outline: 2px solid #2E4D44; outline-offset: 2px; }
+        .input-field { background: #f1f4f3; border: none; border-radius: 4px; transition: background 0.2s ease-out, box-shadow 0.2s ease-out; }
+        .input-field:focus { background: #ffffff; box-shadow: 0 0 0 1px rgba(46, 77, 68, 0.3); outline: none; }
+        .input-field::placeholder { color: #acb3b2; }
+        .card-hover { transition: transform 0.3s cubic-bezier(0.34, 1.56, 0.64, 1), box-shadow 0.3s ease-out; }
+        .card-hover:hover { transform: translateY(-4px); box-shadow: 0 40px 80px rgba(45, 52, 51, 0.08); }
+        .image-hover { transition: transform 0.3s cubic-bezier(0.34, 1.56, 0.64, 1), box-shadow 0.3s ease-out; }
+        .image-hover:hover { transform: scale(1.02); }
+        .fade-in { opacity: 0; transform: translateY(20px); transition: opacity 0.6s ease-out, transform 0.6s ease-out; }
+        .fade-in-visible { opacity: 1; transform: translateY(0); }
+        .chip { background: #b8eefe; color: #225a68; border-radius: 9999px; padding: 0.25rem 0.75rem; font-size: 0.75rem; font-weight: 500; letter-spacing: 0.05em; text-transform: uppercase; }
+        .mobile-menu { transform: translateX(100%); transition: transform 0.3s ease-out; }
+        .mobile-menu.open { transform: translateX(0); }
+        .spec-table { width: 100%; border-collapse: separate; border-spacing: 0; }
+        .spec-table td { padding: 0.75rem 1rem; }
+        .spec-table tr:nth-child(even) { background: #f1f4f3; }
+        .spec-table tr:nth-child(odd) { background: #ffffff; }
+    </style>
+</head>
+<body class="antialiased">
+    <!-- Header -->
+    <header class="glass-header fixed top-0 left-0 right-0 z-50 border-b border-[#acb3b2]/15">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex items-center justify-between h-16 lg:h-20">
+                <a href="index.html" class="flex-shrink-0 py-2">
+                    <img src="brand%20assets/brand-logo.jpg" alt="HEVBISON Logo" class="h-12 lg:h-16 w-auto rounded-lg">
+                </a>
+                <nav class="hidden lg:flex items-center space-x-8">
+                    <a href="#product" class="nav-link font-display text-sm font-medium text-[#2d3433] hover:text-primary transition-colors">Product</a>
+                    <a href="#about" class="nav-link font-display text-sm font-medium text-[#2d3433] hover:text-primary transition-colors">About</a>
+                    <a href="#why-hevbison" class="nav-link font-display text-sm font-medium text-[#2d3433] hover:text-primary transition-colors">Why HEVBISON</a>
+                    <a href="#installation" class="nav-link font-display text-sm font-medium text-[#2d3433] hover:text-primary transition-colors">Installation</a>
+                </nav>
+                <a href="#contact" class="hidden lg:inline-flex btn-primary px-6 py-2.5 font-display text-sm font-medium">Contact Us</a>
+                <button id="mobile-menu-btn" class="lg:hidden p-2 rounded-md text-[#2d3433] hover:bg-surface-low" aria-label="Open menu">
+                    <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"/></svg>
+                </button>
+            </div>
+        </div>
+        <div id="mobile-menu" class="mobile-menu fixed inset-y-0 right-0 w-64 bg-surface-lowest shadow-ambient-xl lg:hidden z-50">
+            <div class="p-6">
+                <button id="close-menu-btn" class="absolute top-4 right-4 p-2 rounded-md text-[#2d3433] hover:bg-surface-low" aria-label="Close menu">
+                    <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"/></svg>
+                </button>
+                <nav class="flex flex-col space-y-4 mt-8">
+                    <a href="#product" class="nav-link font-display text-base font-medium text-[#2d3433] hover:text-primary py-2">Product</a>
+                    <a href="#about" class="nav-link font-display text-base font-medium text-[#2d3433] hover:text-primary py-2">About</a>
+                    <a href="#why-hevbison" class="nav-link font-display text-base font-medium text-[#2d3433] hover:text-primary py-2">Why HEVBISON</a>
+                    <a href="#installation" class="nav-link font-display text-base font-medium text-[#2d3433] hover:text-primary py-2">Installation</a>
+                    <a href="#contact" class="btn-primary px-6 py-3 font-display text-sm font-medium text-center mt-4">Contact Us</a>
+                </nav>
+            </div>
+        </div>
+    </header>
+
+    <main>
+        <!-- Hero Section -->
+        <section id="hero" class="min-h-screen pt-20 lg:pt-24 pb-16 lg:pb-24">
+            <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+                <div class="grid lg:grid-cols-12 gap-8 lg:gap-12 items-center min-h-[calc(100vh-8rem)]">
+                    <div class="lg:col-span-7 fade-in">
+                        <span class="chip mb-6 inline-block">Premium Hybrid Batteries</span>
+                        <h1 class="font-display text-4xl sm:text-5xl lg:text-6xl font-bold tracking-tighter leading-tight text-[#2d3433] mb-6">
+                            Powering Tomorrow's<br><span class="text-primary">Hybrid Vehicles</span>
+                        </h1>
+                        <p class="text-lg lg:text-xl text-[#2d3433]/80 leading-relaxed mb-8 max-w-xl">
+                            HEVBISON specializes in automotive-grade hybrid batteries, fully compatible with the entire Toyota and Lexus hybrid lineup. Experience premium quality at competitive prices.
+                        </p>
+                        <div class="flex flex-col sm:flex-row gap-4">
+                            <a href="#product" class="btn-primary px-8 py-3.5 font-display text-sm font-medium text-center">Explore Products</a>
+                            <a href="#contact" class="btn-secondary px-8 py-3.5 font-display text-sm font-medium text-center">Get a Quote</a>
+                        </div>
+                        <div class="grid grid-cols-3 gap-6 mt-12 pt-12 border-t border-surface">
+                            <div><div class="font-display text-2xl lg:text-3xl font-bold text-primary">15+</div><div class="text-sm text-[#2d3433]/60 mt-1">Years Experience</div></div>
+                            <div><div class="font-display text-2xl lg:text-3xl font-bold text-primary">100%</div><div class="text-sm text-[#2d3433]/60 mt-1">Toyota Compatible</div></div>
+                            <div><div class="font-display text-2xl lg:text-3xl font-bold text-primary">3</div><div class="text-sm text-[#2d3433]/60 mt-1">Export Markets</div></div>
+                        </div>
+                    </div>
+                    <div class="lg:col-span-5 fade-in">
+                        <div class="relative">
+                            <!-- Factory background image -->
+                            <div class="absolute inset-0 rounded-2xl overflow-hidden opacity-20">
+                                <img src="brand%20assets/factory-workshop.jpg" alt="" class="w-full h-full object-cover scale-110">
+                            </div>
+                            <div class="relative aspect-[4/3] rounded-2xl overflow-hidden image-hover shadow-ambient-xl">
+                                <img src="main%20product%20snapshots/1.png" alt="HEVBISON Hybrid Battery" class="w-full h-full object-cover">
+                            </div>
+                            <div class="absolute -bottom-4 -left-4 chip shadow-ambient">OEM Spec</div>
+                            <div class="absolute -top-4 -right-4 chip shadow-ambient">Factory Direct</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Factory Director / Product Specs Section -->
+        <section class="py-16 lg:py-24 bg-surface-low">
+            <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+                <div class="grid lg:grid-cols-2 gap-12 items-start">
+                    <!-- Left: Company Info -->
+                    <div class="fade-in">
+                        <span class="text-xs font-medium tracking-widest uppercase text-primary">Product Specifications</span>
+                        <h2 class="font-display text-3xl sm:text-4xl font-bold tracking-tighter text-[#2d3433] mt-4 mb-6">
+                            Battery Performance & Basic Information
+                        </h2>
+                        <p class="text-[#2d3433]/70 leading-relaxed mb-8">
+                            HEVBISON automotive-grade hybrid batteries are designed for maximum performance and reliability. Our ternary lithium batteries meet the highest safety standards and are fully compatible with Toyota and Lexus hybrid vehicles.
+                        </p>
+
+                        <!-- Compatible Vehicles -->
+                        <div class="bg-surface-lowest rounded-xl p-6 mb-6">
+                            <h4 class="font-display font-semibold text-[#2d3433] mb-3">Compatible Vehicles</h4>
+                            <p class="text-sm text-[#2d3433]/70">2010-2018 Prius, Corolla, Levin, Camry, Sienna, CT200H, ES300H</p>
+                        </div>
+
+                        <div class="flex gap-4">
+                            <div class="bg-primary rounded-xl p-6 text-center flex-1">
+                                <div class="font-display text-3xl font-bold text-white">3 Years</div>
+                                <div class="text-sm text-white/70 mt-1">Unlimited Mileage Warranty</div>
+                            </div>
+                            <div class="bg-tertiary-container rounded-xl p-6 text-center flex-1">
+                                <div class="font-display text-3xl font-bold text-[#225a68]">Ping An</div>
+                                <div class="text-sm text-[#225a68]/70 mt-1">Insurance Covered</div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Right: Specs Tables -->
+                    <div class="fade-in space-y-6">
+                        <!-- Performance Table -->
+                        <div class="bg-surface-lowest rounded-xl overflow-hidden shadow-ambient">
+                            <div class="bg-primary px-6 py-4">
+                                <h3 class="font-display font-semibold text-white">Technical Specifications</h3>
+                            </div>
+                            <table class="spec-table">
+                                <tbody>
+                                    <tr><td class="font-medium text-[#2d3433]">Battery Type</td><td class="text-[#2d3433]/70">Ternary Lithium Battery</td></tr>
+                                    <tr><td class="font-medium text-[#2d3433]">Automotive Grade</td><td class="text-[#2d3433]/70">Yes (Full Safety Standards)</td></tr>
+                                    <tr><td class="font-medium text-[#2d3433]">Cell Weight</td><td class="text-[#2d3433]/70">548.5g/PC</td></tr>
+                                    <tr><td class="font-medium text-[#2d3433]">Cell Dimensions</td><td class="text-[#2d3433]/70">1:1 Original Toyota</td></tr>
+                                    <tr><td class="font-medium text-[#2d3433]">Rated Capacity</td><td class="text-[#2d3433]/70">5.8AH</td></tr>
+                                    <tr><td class="font-medium text-[#2d3433]">Internal Resistance</td><td class="text-[#2d3433]/70">1.88mΩ</td></tr>
+                                    <tr><td class="font-medium text-[#2d3433]">Charge Cut-off Voltage</td><td class="text-[#2d3433]/70">8.4V</td></tr>
+                                    <tr><td class="font-medium text-[#2d3433]">Discharge Cut-off Voltage</td><td class="text-[#2d3433]/70">5.5V</td></tr>
+                                </tbody>
+                            </table>
+                        </div>
+
+                        <!-- Performance Metrics -->
+                        <div class="bg-surface-lowest rounded-xl overflow-hidden shadow-ambient">
+                            <div class="bg-primary/80 px-6 py-4">
+                                <h3 class="font-display font-semibold text-white">Performance Metrics</h3>
+                            </div>
+                            <table class="spec-table">
+                                <tbody>
+                                    <tr><td class="font-medium text-[#2d3433]">Max Continuous Charging</td><td class="text-[#2d3433]/70">200A 30S 60°C</td></tr>
+                                    <tr><td class="font-medium text-[#2d3433]">Max Continuous Discharging</td><td class="text-[#2d3433]/70">210A 30S 60°C</td></tr>
+                                    <tr><td class="font-medium text-[#2d3433]">Cycle Count</td><td class="text-[#2d3433]/70">4000 cycles @ 100% DoD</td></tr>
+                                    <tr><td class="font-medium text-[#2d3433]">Capacity Retention</td><td class="text-[#2d3433]/70">≥80%</td></tr>
+                                    <tr><td class="font-medium text-[#2d3433]">K Value</td><td class="text-[#2d3433]/70">≤0.078mV/h</td></tr>
+                                    <tr><td class="font-medium text-[#2d3433]">DCIR</td><td class="text-[#2d3433]/70">3.8mΩ ±0.2</td></tr>
+                                </tbody>
+                            </table>
+                        </div>
+
+                        <!-- Safety Standards -->
+                        <div class="bg-surface-lowest rounded-xl overflow-hidden shadow-ambient">
+                            <div class="bg-tertiary-container px-6 py-4">
+                                <h3 class="font-display font-semibold text-[#225a68]">Safety Standards Met</h3>
+                            </div>
+                            <div class="p-6 space-y-3">
+                                <div class="flex items-start gap-3">
+                                    <svg class="w-5 h-5 text-primary flex-shrink-0 mt-0.5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"/></svg>
+                                    <span class="text-sm text-[#2d3433]/70">GB 38031-2020 Electric Vehicles Traction Battery Safety Requirements</span>
+                                </div>
+                                <div class="flex items-start gap-3">
+                                    <svg class="w-5 h-5 text-primary flex-shrink-0 mt-0.5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"/></svg>
+                                    <span class="text-sm text-[#2d3433]/70">GB/T 31485-2015 Safety Requirements for Traction Battery</span>
+                                </div>
+                                <div class="flex items-start gap-3">
+                                    <svg class="w-5 h-5 text-primary flex-shrink-0 mt-0.5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"/></svg>
+                                    <span class="text-sm text-[#2d3433]/70">GJB2374-1995 Safety Requirements for Lithium Battery</span>
+                                </div>
+                                <div class="flex items-start gap-3">
+                                    <svg class="w-5 h-5 text-primary flex-shrink-0 mt-0.5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"/></svg>
+                                    <span class="text-sm text-[#2d3433]/70">CTS-S13.60.00-A1-2021 Technical Specification for HEV Battery</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Why HEVBISON Section -->
+        <section id="why-hevbison" class="py-16 lg:py-24">
+            <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+                <div class="text-center mb-12 lg:mb-16 fade-in">
+                    <span class="text-xs font-medium tracking-widest uppercase text-primary">Our Advantages</span>
+                    <h2 class="font-display text-3xl sm:text-4xl lg:text-5xl font-bold tracking-tighter text-[#2d3433] mt-4">Why HEVBISON</h2>
+                    <p class="text-lg text-[#2d3433]/70 mt-4 max-w-2xl mx-auto">We combine deep industry expertise with factory-direct pricing to deliver unmatched value for hybrid battery solutions.</p>
+                </div>
+                <div class="grid sm:grid-cols-2 lg:grid-cols-3 gap-6 lg:gap-8">
+                    <div class="bg-surface-lowest rounded-xl p-6 lg:p-8 card-hover fade-in">
+                        <div class="w-12 h-12 rounded-lg bg-tertiary-container flex items-center justify-center mb-6">
+                            <svg class="w-6 h-6 text-[#225a68]" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z"/></svg>
+                        </div>
+                        <h3 class="font-display text-xl font-semibold text-[#2d3433] mb-3">Custom Mold Development</h3>
+                        <p class="text-[#2d3433]/70 leading-relaxed">Specialized Pack design and custom mold development for specific vehicle models. Tailored solutions for your exact requirements.</p>
+                    </div>
+                    <div class="bg-surface-lowest rounded-xl p-6 lg:p-8 card-hover fade-in">
+                        <div class="w-12 h-12 rounded-lg bg-tertiary-container flex items-center justify-center mb-6">
+                            <svg class="w-6 h-6 text-[#225a68]" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5H7a2 2 0 00-2 2v12a2 2 0 002 2h10a2 2 0 002-2V7a2 2 0 00-2-2h-2M9 5a2 2 0 002 2h2a2 2 0 002-2M9 5a2 2 0 012-2h2a2 2 0 012 2m-6 9l2 2 4-4"/></svg>
+                        </div>
+                        <h3 class="font-display text-xl font-semibold text-[#2d3433] mb-3">Comprehensive Quality Testing</h3>
+                        <p class="text-[#2d3433]/70 leading-relaxed">Rigorous quality testing that meets Toyota and Lexus specifications. Full tracking before, during, and after factory departure.</p>
+                    </div>
+                    <div class="bg-surface-lowest rounded-xl p-6 lg:p-8 card-hover fade-in">
+                        <div class="w-12 h-12 rounded-lg bg-tertiary-container flex items-center justify-center mb-6">
+                            <svg class="w-6 h-6 text-[#225a68]" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 8c-1.657 0-3 .895-3 2s1.343 2 3 2 3 .895 3 2-1.343 2-3 2m0-8c1.11 0 2.08.402 2.599 1M12 8V7m0 1v8m0 0v1m0-1c-1.11 0-2.08-.402-2.599-1M21 12a9 9 0 11-18 0 9 9 0 0118 0z"/></svg>
+                        </div>
+                        <h3 class="font-display text-xl font-semibold text-[#2d3433] mb-3">Factory-Direct Pricing</h3>
+                        <p class="text-[#2d3433]/70 leading-relaxed">Brand-new, factory-original batteries with significant price advantages. High-performance metrics at competitive rates.</p>
+                    </div>
+                    <div class="bg-surface-lowest rounded-xl p-6 lg:p-8 card-hover fade-in">
+                        <div class="w-12 h-12 rounded-lg bg-tertiary-container flex items-center justify-center mb-6">
+                            <svg class="w-6 h-6 text-[#225a68]" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 20h5v-2a3 3 0 00-5.356-1.857M17 20H7m10 0v-2c0-.656-.126-1.283-.356-1.857M7 20H2v-2a3 3 0 015.356-1.857M7 20v-2c0-.656.126-1.283.356-1.857m0 0a5.002 5.002 0 019.288 0M15 7a3 3 0 11-6 0 3 3 0 016 0zm6 3a2 2 0 11-4 0 2 2 0 014 0zM7 10a2 2 0 11-4 0 2 2 0 014 0z"/></svg>
+                        </div>
+                        <h3 class="font-display text-xl font-semibold text-[#2d3433] mb-3">Industry Expertise</h3>
+                        <p class="text-[#2d3433]/70 leading-relaxed">Leadership team with 15-20 years of deep experience in battery industry, from consumer electronics to automotive-grade manufacturing.</p>
+                    </div>
+                    <div class="bg-surface-lowest rounded-xl p-6 lg:p-8 card-hover fade-in">
+                        <div class="w-12 h-12 rounded-lg bg-tertiary-container flex items-center justify-center mb-6">
+                            <svg class="w-6 h-6 text-[#225a68]" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3.055 11H5a2 2 0 012 2v1a2 2 0 002 2 2 2 0 012 2v2.945M8 3.935V5.5A2.5 2.5 0 0010.5 8h.5a2 2 0 012 2 2 2 0 104 0 2 2 0 012-2h1.064M15 20.488V18a2 2 0 012-2h3.064M21 12a9 9 0 11-18 0 9 9 0 0118 0z"/></svg>
+                        </div>
+                        <h3 class="font-display text-xl font-semibold text-[#2d3433] mb-3">Global Export Markets</h3>
+                        <p class="text-[#2d3433]/70 leading-relaxed">Serving customers in the United States, Australia, and Canada with seamless international logistics and support.</p>
+                    </div>
+                    <div class="bg-surface-lowest rounded-xl p-6 lg:p-8 card-hover fade-in">
+                        <div class="w-12 h-12 rounded-lg bg-tertiary-container flex items-center justify-center mb-6">
+                            <svg class="w-6 h-6 text-[#225a68]" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 10V3L4 14h7v7l9-11h-7z"/></svg>
+                        </div>
+                        <h3 class="font-display text-xl font-semibold text-[#2d3433] mb-3">Seamless Coordination</h3>
+                        <p class="text-[#2d3433]/70 leading-relaxed">Deep industry knowledge ensures smooth operations from sourcing to delivery. Advanced post-packaging testing and resource control.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Product Overview Section -->
+        <section id="product" class="py-16 lg:py-24 bg-surface-low">
+            <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+                <div class="grid lg:grid-cols-2 gap-12 lg:gap-16 items-center">
+                    <div class="grid grid-cols-2 gap-4 fade-in">
+                        <div class="aspect-square rounded-xl overflow-hidden image-hover shadow-ambient">
+                            <img src="main%20product%20snapshots/1.png" alt="HEVBISON Battery" class="w-full h-full object-cover">
+                        </div>
+                        <div class="aspect-square rounded-xl overflow-hidden image-hover shadow-ambient mt-8">
+                            <img src="main%20product%20snapshots/2.png" alt="HEVBISON Battery" class="w-full h-full object-cover">
+                        </div>
+                        <div class="aspect-square rounded-xl overflow-hidden image-hover shadow-ambient -mt-8">
+                            <img src="main%20product%20snapshots/3.png" alt="HEVBISON Battery" class="w-full h-full object-cover">
+                        </div>
+                        <div class="aspect-square rounded-xl overflow-hidden image-hover shadow-ambient">
+                            <img src="main%20product%20snapshots/4.png" alt="HEVBISON Battery" class="w-full h-full object-cover">
+                        </div>
+                    </div>
+                    <div class="fade-in">
+                        <span class="text-xs font-medium tracking-widest uppercase text-primary">Product & Technology</span>
+                        <h2 class="font-display text-3xl sm:text-4xl lg:text-5xl font-bold tracking-tighter text-[#2d3433] mt-4 mb-6">Premium Hybrid Batteries</h2>
+                        <p class="text-lg text-[#2d3433]/70 leading-relaxed mb-6">Our hybrid batteries are fully compatible with the entire range of Toyota and Lexus hybrid models. We source from China's leading new-energy manufacturers and subject them to rigorous quality testing.</p>
+                        <div class="flex flex-wrap gap-3 mb-8">
+                            <span class="chip">NiMH Technology</span>
+                            <span class="chip">OEM Compatible</span>
+                            <span class="chip">Factory New</span>
+                            <span class="chip">Full Warranty</span>
+                        </div>
+                        <div class="bg-surface-lowest rounded-xl p-6 mb-8">
+                            <h4 class="font-display font-semibold text-[#2d3433] mb-3">HEVBISON vs Toyota OEM</h4>
+                            <p class="text-[#2d3433]/70 text-sm mb-4">See our comprehensive side-by-side comparison with Toyota's original NiMH batteries across all technical parameters.</p>
+                            <div class="flex items-center gap-2 text-primary text-sm font-medium">
+                                <span>View detailed specifications</span>
+                                <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 8l4 4m0 0l-4 4m4-4H3"/></svg>
+                            </div>
+                        </div>
+                        <a href="product.html" class="btn-primary inline-flex items-center px-8 py-3.5 font-display text-sm font-medium">
+                            Learn More<svg class="w-4 h-4 ml-2" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 8l4 4m0 0l-4 4m4-4H3"/></svg>
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Installation Overview Section -->
+        <section id="installation" class="py-16 lg:py-24">
+            <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+                <div class="grid lg:grid-cols-2 gap-12 lg:gap-16 items-center">
+                    <div class="order-2 lg:order-1 fade-in">
+                        <span class="text-xs font-medium tracking-widest uppercase text-primary">Installation Excellence</span>
+                        <h2 class="font-display text-3xl sm:text-4xl lg:text-5xl font-bold tracking-tighter text-[#2d3433] mt-4 mb-6">Professional Installation Guide</h2>
+                        <p class="text-lg text-[#2d3433]/70 leading-relaxed mb-6">Our comprehensive Standard Operating Procedure ensures safe and efficient battery installation. Follow our expert guidance for optimal results.</p>
+                        <div class="space-y-4 mb-8">
+                            <div class="flex items-center gap-4">
+                                <div class="w-10 h-10 rounded-full bg-primary text-white flex items-center justify-center font-display font-semibold text-sm">1</div>
+                                <span class="text-[#2d3433]">Preparation & Safety Check</span>
+                            </div>
+                            <div class="flex items-center gap-4">
+                                <div class="w-10 h-10 rounded-full bg-primary text-white flex items-center justify-center font-display font-semibold text-sm">2</div>
+                                <span class="text-[#2d3433]">Battery Removal & Inspection</span>
+                            </div>
+                            <div class="flex items-center gap-4">
+                                <div class="w-10 h-10 rounded-full bg-surface text-[#2d3433] flex items-center justify-center font-display font-semibold text-sm">3</div>
+                                <span class="text-[#2d3433]/60">Installation & Testing</span>
+                            </div>
+                        </div>
+                        <a href="installation.html" class="btn-primary inline-flex items-center px-8 py-3.5 font-display text-sm font-medium">
+                            View Full SOP<svg class="w-4 h-4 ml-2" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 8l4 4m0 0l-4 4m4-4H3"/></svg>
+                        </a>
+                    </div>
+                    <div class="order-1 lg:order-2 fade-in">
+                        <div class="aspect-[4/3] rounded-2xl overflow-hidden shadow-ambient-xl image-hover">
+                            <img src="main%20product%20snapshots/2.png" alt="Installation Process" class="w-full h-full object-cover">
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- About Section -->
+        <section id="about" class="py-16 lg:py-24 bg-surface-low">
+            <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+                <div class="max-w-3xl mx-auto text-center fade-in">
+                    <span class="text-xs font-medium tracking-widest uppercase text-primary">About Us</span>
+                    <h2 class="font-display text-3xl sm:text-4xl lg:text-5xl font-bold tracking-tighter text-[#2d3433] mt-4 mb-6">Engineering the Unseen</h2>
+                    <p class="text-lg text-[#2d3433]/70 leading-relaxed mb-8">Based in Guangdong, China, HEVBISON is built on a foundation of deep industry expertise. Every member of our leadership team brings 15 to 20 years of experience spanning consumer electronics to automotive-grade manufacturing for top-tier Chinese battery manufacturers.</p>
+                </div>
+                <div class="grid lg:grid-cols-3 gap-8 mt-12">
+                    <div class="bg-surface-lowest rounded-xl p-8 text-center card-hover fade-in">
+                        <div class="w-16 h-16 rounded-full bg-tertiary-container flex items-center justify-center mx-auto mb-6">
+                            <svg class="w-8 h-8 text-[#225a68]" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19.428 15.428a2 2 0 00-1.022-.547l-2.387-.477a6 6 0 00-3.86.517l-.318.158a6 6 0 01-3.86.517L6.05 15.21a2 2 0 00-1.806.547M8 4h8l-1 1v5.172a2 2 0 00.586 1.414l5 5c1.26 1.26.367 3.414-1.415 3.414H4.828c-1.782 0-2.674-2.154-1.414-3.414l5-5A2 2 0 009 10.172V5L8 4z"/></svg>
+                        </div>
+                        <h3 class="font-display text-xl font-semibold text-[#2d3433] mb-3">Deep Expertise</h3>
+                        <p class="text-[#2d3433]/70">From earbuds to automotive batteries, our team has mastered the full spectrum of battery technology.</p>
+                    </div>
+                    <div class="bg-surface-lowest rounded-xl p-8 text-center card-hover fade-in">
+                        <div class="w-16 h-16 rounded-full bg-tertiary-container flex items-center justify-center mx-auto mb-6">
+                            <svg class="w-8 h-8 text-[#225a68]" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4M7.835 4.697a3.42 3.42 0 001.946-.806 3.42 3.42 0 014.438 0 3.42 3.42 0 001.946.806 3.42 3.42 0 013.138 3.138 3.42 3.42 0 00.806 1.946 3.42 3.42 0 010 4.438 3.42 3.42 0 00-.806 1.946 3.42 3.42 0 01-3.138 3.138 3.42 3.42 0 00-1.946.806 3.42 3.42 0 01-4.438 0 3.42 3.42 0 00-1.946-.806 3.42 3.42 0 01-3.138-3.138 3.42 3.42 0 00-.806-1.946 3.42 3.42 0 010-4.438 3.42 3.42 0 00.806-1.946 3.42 3.42 0 013.138-3.138z"/></svg>
+                        </div>
+                        <h3 class="font-display text-xl font-semibold text-[#2d3433] mb-3">Quality First</h3>
+                        <p class="text-[#2d3433]/70">Rigorous testing meets Toyota and Lexus specifications. Factory-original, brand-new batteries every time.</p>
+                    </div>
+                    <div class="bg-surface-lowest rounded-xl p-8 text-center card-hover fade-in">
+                        <div class="w-16 h-16 rounded-full bg-tertiary-container flex items-center justify-center mx-auto mb-6">
+                            <svg class="w-8 h-8 text-[#225a68]" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3.055 11H5a2 2 0 012 2v1a2 2 0 002 2 2 2 0 012 2v2.945M8 3.935V5.5A2.5 2.5 0 0010.5 8h.5a2 2 0 012 2 2 2 0 104 0 2 2 0 012-2h1.064M15 20.488V18a2 2 0 012-2h3.064M21 12a9 9 0 11-18 0 9 9 0 0118 0z"/></svg>
+                        </div>
+                        <h3 class="font-display text-xl font-semibold text-[#2d3433] mb-3">Global Reach</h3>
+                        <p class="text-[#2d3433]/70">Serving repair shops and dealerships across the United States, Australia, and Canada.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Contact Section -->
+        <section id="contact" class="py-16 lg:py-24 bg-surface-low">
+            <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+                <div class="bg-surface-lowest rounded-2xl shadow-ambient overflow-hidden fade-in">
+                    <div class="grid lg:grid-cols-2">
+                        <!-- Left: Contact Information -->
+                        <div class="p-8 lg:p-12 bg-primary">
+                            <span class="text-xs font-medium tracking-widest uppercase text-white/70">Get in Touch</span>
+                            <h2 class="font-display text-3xl sm:text-4xl font-bold tracking-tighter text-white mt-4 mb-6">Contact Information</h2>
+                            <p class="text-white/80 leading-relaxed mb-8">Fill out the form and our team will get back to you within 24 hours.</p>
+
+                            <div class="space-y-6">
+                                <div>
+                                    <h4 class="font-display font-semibold text-white mb-2">What to include in your message:</h4>
+                                    <ul class="space-y-2 text-white/70 text-sm">
+                                        <li class="flex items-start gap-2">
+                                            <svg class="w-4 h-4 text-tertiary-container flex-shrink-0 mt-0.5" fill="currentColor" viewBox="0 0 20 20"><path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"/></svg>
+                                            Your name and company
+                                        </li>
+                                        <li class="flex items-start gap-2">
+                                            <svg class="w-4 h-4 text-tertiary-container flex-shrink-0 mt-0.5" fill="currentColor" viewBox="0 0 20 20"><path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"/></svg>
+                                            Vehicle model and year
+                                        </li>
+                                        <li class="flex items-start gap-2">
+                                            <svg class="w-4 h-4 text-tertiary-container flex-shrink-0 mt-0.5" fill="currentColor" viewBox="0 0 20 20"><path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"/></svg>
+                                            Quantity requirements
+                                        </li>
+                                        <li class="flex items-start gap-2">
+                                            <svg class="w-4 h-4 text-tertiary-container flex-shrink-0 mt-0.5" fill="currentColor" viewBox="0 0 20 20"><path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"/></svg>
+                                            Specific technical requirements
+                                        </li>
+                                    </ul>
+                                </div>
+
+                                <div class="pt-6 border-t border-white/20">
+                                    <p class="text-white/60 text-sm">
+                                        <span class="font-medium text-white/80">HEVBISON</span><br>
+                                        Guangdong, China<br>
+                                        Specializing in Toyota & Lexus Hybrid Batteries
+                                    </p>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Right: Contact Form -->
+                        <div class="p-8 lg:p-12">
+                            <form id="contact-form" class="space-y-6">
+                                <div>
+                                    <label for="name" class="block text-sm font-medium text-[#2d3433] mb-2">Name</label>
+                                    <input type="text" id="name" name="name" required class="input-field w-full px-4 py-3 text-[#2d3433]" placeholder="Your name">
+                                </div>
+                                <div>
+                                    <label for="email" class="block text-sm font-medium text-[#2d3433] mb-2">Corporate Email</label>
+                                    <input type="email" id="email" name="email" required class="input-field w-full px-4 py-3 text-[#2d3433]" placeholder="your@company.com">
+                                    <p id="email-error" class="text-error text-sm mt-2 hidden">Please use a corporate email address.</p>
+                                </div>
+                                <div>
+                                    <label for="message" class="block text-sm font-medium text-[#2d3433] mb-2">Message</label>
+                                    <textarea id="message" name="message" rows="5" required class="input-field w-full px-4 py-3 text-[#2d3433] resize-none" placeholder="Tell us about your requirements..."></textarea>
+                                </div>
+                                <button type="submit" class="btn-primary w-full py-4 font-display text-sm font-medium">Send Message</button>
+                            </form>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <!-- Footer -->
+    <footer class="py-12 bg-surface">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex flex-col lg:flex-row justify-between items-center gap-6">
+                <div class="flex items-center gap-3">
+                    <img src="brand%20assets/brand-logo.jpg" alt="HEVBISON Logo" class="h-10 w-auto rounded-lg">
+                </div>
+                <nav class="flex flex-wrap justify-center gap-6 text-sm text-[#2d3433]/70">
+                    <a href="#product" class="hover:text-primary transition-colors">Product</a>
+                    <a href="#about" class="hover:text-primary transition-colors">About</a>
+                    <a href="#why-hevbison" class="hover:text-primary transition-colors">Why HEVBISON</a>
+                    <a href="#installation" class="hover:text-primary transition-colors">Installation</a>
+                    <a href="#contact" class="hover:text-primary transition-colors">Contact</a>
+                </nav>
+                <p class="text-sm text-[#2d3433]/50">&copy; 2024 HEVBISON. All rights reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        // Mobile Menu Toggle
+        const mobileMenuBtn = document.getElementById('mobile-menu-btn');
+        const closeMenuBtn = document.getElementById('close-menu-btn');
+        const mobileMenu = document.getElementById('mobile-menu');
+        mobileMenuBtn.addEventListener('click', () => mobileMenu.classList.add('open'));
+        closeMenuBtn.addEventListener('click', () => mobileMenu.classList.remove('open'));
+        mobileMenu.querySelectorAll('a').forEach(link => link.addEventListener('click', () => mobileMenu.classList.remove('open')));
+
+        // Active Section Detection
+        const sections = document.querySelectorAll('section[id]');
+        const navLinks = document.querySelectorAll('.nav-link');
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    const id = entry.target.getAttribute('id');
+                    navLinks.forEach(link => {
+                        link.classList.remove('active');
+                        if (link.getAttribute('href') === `#${id}`) link.classList.add('active');
+                    });
+                }
+            });
+        }, { rootMargin: '-20% 0px -60% 0px' });
+        sections.forEach(section => observer.observe(section));
+
+        // Fade-in Animation
+        const fadeObserver = new IntersectionObserver((entries) => {
+            entries.forEach(entry => { if (entry.isIntersecting) entry.target.classList.add('fade-in-visible'); });
+        }, { threshold: 0.1, rootMargin: '0px 0px -50px 0px' });
+        document.querySelectorAll('.fade-in').forEach(el => fadeObserver.observe(el));
+
+        // Form Validation
+        const contactForm = document.getElementById('contact-form');
+        const emailInput = document.getElementById('email');
+        const emailError = document.getElementById('email-error');
+        const personalEmailDomains = ['gmail.com', 'yahoo.com', 'hotmail.com', 'outlook.com', 'aol.com', 'icloud.com'];
+        emailInput.addEventListener('blur', () => {
+            const email = emailInput.value.toLowerCase();
+            const domain = email.split('@')[1];
+            if (domain && personalEmailDomains.includes(domain)) {
+                emailError.classList.remove('hidden');
+                emailInput.style.boxShadow = '0 0 0 1px rgba(168, 56, 54, 0.3)';
+                emailInput.style.background = '#f5d4d3';
+            } else {
+                emailError.classList.add('hidden');
+                emailInput.style.boxShadow = '';
+                emailInput.style.background = '';
+            }
+        });
+        contactForm.addEventListener('submit', (e) => {
+            e.preventDefault();
+            const email = emailInput.value.toLowerCase();
+            const domain = email.split('@')[1];
+            if (domain && personalEmailDomains.includes(domain)) { emailError.classList.remove('hidden'); return; }
+            alert('Thank you for your message! We will get back to you soon.');
+            contactForm.reset();
+        });
+
+        // Smooth scroll
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                const target = document.querySelector(this.getAttribute('href'));
+                if (target) {
+                    const headerOffset = 80;
+                    window.scrollTo({ top: target.getBoundingClientRect().top + window.pageYOffset - headerOffset, behavior: 'smooth' });
+                }
+            });
+        });
+    </script>
+</body>
+</html>
