@@ -5,11 +5,10 @@
 extracted_images/
 remove.photos-*
 
-# Intermediate logo versions
+# Intermediate logo versions (keep only the final logo)
 brand assets/brand-logo-clean.png
 brand assets/brand-logo-final.png
 brand assets/brand-logo-processed.png
 brand assets/logo-clean.png
 brand assets/logo.png
 brand assets/comparison_images/
-brand assets/sop_images/
